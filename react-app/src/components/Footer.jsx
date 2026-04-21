@@ -8,7 +8,6 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-7 sm:gap-10 pb-8 sm:pb-10">
           <div>
             <img src={`${base}imps-primary-light.svg`} alt="IMPS" className="h-12 sm:h-14 mb-3" />
-            <div className="font-mono text-[11px] tracking-[0.18em] text-ink-400 uppercase">imps.software</div>
             <div className="font-sans text-[14px] text-ink-400 leading-[1.5] max-w-[340px] mt-3">
               Software, games, and everything in between. Made with mischief.
             </div>

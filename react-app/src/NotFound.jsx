@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import Container from './components/Container.jsx';
 import MinimalFooter from './components/MinimalFooter.jsx';
 import PROJECTS from './data/projects.js';
@@ -20,14 +19,14 @@ export default function NotFound() {
     <div className="min-h-screen bg-ink-900 text-white flex flex-col">
       <div className="sticky top-0 z-50 bg-ink-900 border-b border-ink-700">
         <Container className="flex items-center justify-between gap-4 flex-wrap py-3 text-[12px] tracking-[0.14em] uppercase">
-          <Link className="flex items-center focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-imps-red focus-visible:ring-offset-2 focus-visible:ring-offset-ink-900 rounded-sm" to="/">
+          <a className="flex items-center focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-imps-red focus-visible:ring-offset-2 focus-visible:ring-offset-ink-900 rounded-sm" href="/">
             <img src={`${base}imps-primary-light.svg`} alt="IMPS" className="h-8 sm:h-10 block" />
-          </Link>
+          </a>
           <nav className="hidden sm:flex gap-7 text-ink-300">
-            <Link className="hover:text-imps-red focus-visible:text-imps-red focus-visible:outline-none focus-visible:underline" to="/#services">services</Link>
-            <Link className="hover:text-imps-red focus-visible:text-imps-red focus-visible:outline-none focus-visible:underline" to="/#work">work</Link>
-            <Link className="hover:text-imps-red focus-visible:text-imps-red focus-visible:outline-none focus-visible:underline" to="/#process">process</Link>
-            <Link className="hover:text-imps-red focus-visible:text-imps-red focus-visible:outline-none focus-visible:underline" to="/#about">about</Link>
+            <a className="hover:text-imps-red focus-visible:text-imps-red focus-visible:outline-none focus-visible:underline" href="/#services">services</a>
+            <a className="hover:text-imps-red focus-visible:text-imps-red focus-visible:outline-none focus-visible:underline" href="/#work">work</a>
+            <a className="hover:text-imps-red focus-visible:text-imps-red focus-visible:outline-none focus-visible:underline" href="/#process">process</a>
+            <a className="hover:text-imps-red focus-visible:text-imps-red focus-visible:outline-none focus-visible:underline" href="/#about">about</a>
           </nav>
           <div className="text-[#C48A2B] text-[10px] sm:text-[12px] whitespace-nowrap">
             <span className="status-dot inline-block w-2 h-2 rounded-full bg-[#C48A2B] mr-2 ring-4 ring-[#C48A2B]/20 align-middle"></span>
@@ -76,7 +75,7 @@ export default function NotFound() {
                 </div>
                 <div className="text-[#C48A2B] ml-4">
                   &rarr; try the homepage, or{' '}
-                  <Link to="/#work" className="text-imps-red underline underline-offset-2 decoration-1 hover:text-white">browse our work</Link>.
+                  <a href="/#work" className="text-imps-red underline underline-offset-2 decoration-1 hover:text-white">browse our work</a>.
                 </div>
                 <div className="mt-2">
                   <span className="text-imps-red">$</span>{' '}
@@ -85,10 +84,10 @@ export default function NotFound() {
               </div>
 
               <div className="flex flex-col sm:flex-row flex-wrap gap-3">
-                <Link to="/"
+                <a href="/"
                    className="inline-flex items-center justify-center px-6 py-3 bg-imps-red text-white font-mono text-[12px] tracking-[0.1em] uppercase rounded hover:bg-imps-deep transition-colors">
                   &larr; back to home
-                </Link>
+                </a>
                 <a href="mailto:hello@imps.studio"
                    className="inline-flex items-center justify-center px-6 py-3 bg-transparent text-ink-300 font-mono text-[12px] tracking-[0.1em] uppercase rounded border border-ink-700 hover:border-imps-red transition-colors">
                   tell us what broke

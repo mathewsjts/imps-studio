@@ -20,9 +20,7 @@ export function render(url = '/') {
 export function render404() {
   return renderToString(
     <React.StrictMode>
-      <StaticRouter location="/404">
-        <NotFound />
-      </StaticRouter>
+      <NotFound />
     </React.StrictMode>
   );
 }

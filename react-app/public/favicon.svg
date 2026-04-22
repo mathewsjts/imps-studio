@@ -1,10 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  
-  <rect width="32" height="32" rx="6" fill="none"></rect>
+  <rect width="32" height="32" rx="6" fill="#0C0E12"></rect>
   <g fill="#B83A3A">
     <path d="M 7 7 L 9 3 L 11 7 Z"></path>
     <path d="M 13 7 L 15 3 L 17 7 Z"></path>
   </g>
-  <text x="3" y="24" font-family="&#39;JetBrains Mono&#39;, ui-monospace, Menlo, monospace" font-weight="700" font-size="20" fill="#B83A3A">&gt;</text>
+  <text x="3" y="24" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-weight="700" font-size="20" fill="#B83A3A">&gt;</text>
   <rect x="15" y="21" width="12" height="3" fill="#FFFFFF"></rect>
 </svg>

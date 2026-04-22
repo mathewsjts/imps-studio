@@ -7,6 +7,6 @@
   <g font-family="&#39;JetBrains Mono&#39;, ui-monospace, Menlo, monospace" font-weight="600">
     <text x="28" y="112" font-size="92" fill="#B83A3A">&gt;</text>
     <text x="96" y="112" font-size="92" fill="#FFFFFF" letter-spacing="-1">imps</text>
-    <rect x="318" y="104" width="40" height="12" fill="#FFFFFF"></rect>
+    <rect x="318" y="104" width="40" height="12" fill="#B83A3A"></rect>
   </g>
 </svg>

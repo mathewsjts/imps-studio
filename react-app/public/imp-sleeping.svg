@@ -2,14 +2,14 @@
   <!-- Main mark group, tilted to show sleeping -->
   <g transform="rotate(-6, 100, 140)">
     <!-- Horns -->
-    <g fill="#B83A3A">
+    <g fill="#B83A3A"  opacity="0.7">
       <path d="M 56 75 L 66 45 L 76 75 Z"/>
       <path d="M 88 75 L 98 45 L 108 75 Z"/>
     </g>
     <!-- > prompt (dimmed — sleeping) -->
     <text x="35" y="165" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-weight="700" font-size="110" fill="#B83A3A" opacity="0.7">&gt;</text>
     <!-- Closed eye — flat line replacing the cursor block -->
-    <rect x="106" y="148" width="42" height="3" rx="1.5" fill="#5B626F"/>
+    <rect x="106" y="148" width="42" height="11" fill="#5B626F"/>
   </g>
   <!-- Floating z's -->
   <g font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-weight="700" fill="#B83A3A">

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Container from './Container.jsx';
 
 export default function CTA() {
@@ -15,9 +16,9 @@ export default function CTA() {
           <button className="px-7 py-4 font-mono text-[13px] tracking-[0.1em] uppercase cursor-pointer border-0 rounded-sm bg-ink-900 text-white hover:bg-white hover:text-imps-red transition-colors">
             start a project &#8594;
           </button>
-          <button className="px-7 py-4 font-mono text-[13px] tracking-[0.1em] uppercase cursor-pointer rounded-sm bg-transparent text-white border border-white/30 hover:border-white transition-colors">
+          <Link to="/work" className="px-7 py-4 font-mono text-[13px] tracking-[0.1em] uppercase cursor-pointer rounded-sm bg-transparent text-white border border-white/30 hover:border-white transition-colors text-center no-underline">
             view more work
-          </button>
+          </Link>
         </div>
       </Container>
     </section>

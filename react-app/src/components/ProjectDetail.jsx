@@ -2,6 +2,7 @@ import { Fragment, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Container from './Container.jsx';
 import Nav from './Nav.jsx';
+import MinimalFooter from './MinimalFooter.jsx';
 import { getProject, getAdjacent } from '../data/projects.js';
 import NotFound from '../NotFound.jsx';
 
@@ -74,7 +75,7 @@ export default function ProjectDetail() {
           <ol className="flex items-center gap-2.5 py-[18px] list-none m-0 p-0 text-[11px] tracking-[0.14em] uppercase text-ink-400">
             <li><a href="/" className="hover:text-imps-red transition-colors">IMPS</a></li>
             <li aria-hidden="true" className="text-ink-500">/</li>
-            <li><a href="/#work" className="hover:text-imps-red transition-colors">Work</a></li>
+            <li><Link to="/work" className="hover:text-imps-red transition-colors">Work</Link></li>
             <li aria-hidden="true" className="text-ink-500">/</li>
             <li className="text-white" aria-current="page">{p.name}</li>
           </ol>
@@ -320,13 +321,7 @@ export default function ProjectDetail() {
         </section>
       )}
 
-      {/* 12 — Minimal Footer */}
-      <footer className="border-t border-ink-700 py-5">
-        <Container className="flex flex-col sm:flex-row justify-between gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-ink-500">
-          <div>&copy; 2026 &middot; imps.studio</div>
-          <div>CASE STUDY &middot; V2026.1</div>
-        </Container>
-      </footer>
+      <MinimalFooter label="CASE STUDY" />
     </div>
   );
 }

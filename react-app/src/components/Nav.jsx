@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import Container from './Container.jsx';
+import { CURRENT_YEAR } from '../data/constants.js';
 
 export default function Nav() {
   const base = import.meta.env.BASE_URL;
@@ -17,7 +18,7 @@ export default function Nav() {
         </nav>
         <div className="text-[#3F8F5F] text-[10px] sm:text-[12px] whitespace-nowrap">
           <span className="status-dot inline-block w-2 h-2 rounded-full bg-[#3F8F5F] mr-2 ring-4 ring-[#3F8F5F]/20 align-middle"></span>
-          ACCEPTING — 2026
+          ACCEPTING — {CURRENT_YEAR}
         </div>
       </Container>
     </div>

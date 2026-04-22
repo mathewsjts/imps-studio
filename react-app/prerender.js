@@ -19,6 +19,14 @@ async function prerender() {
   const mainHtml = mainTemplate.replace('<!--app-html-->', render('/'));
   fs.writeFileSync(path.resolve(distPath, 'index.html'), mainHtml);
 
+  // Work index page
+  const workDir = path.resolve(distPath, 'work');
+  fs.mkdirSync(workDir, { recursive: true });
+  const workHtml = mainTemplate
+    .replace('<!--app-html-->', render('/work'))
+    .replace(/<title>.*?<\/title>/, '<title>Work \u2014 IMPS Studio</title>');
+  fs.writeFileSync(path.resolve(workDir, 'index.html'), workHtml);
+
   // Project detail pages
   for (const project of PROJECTS) {
     const dir = path.resolve(distPath, 'work', project.slug);

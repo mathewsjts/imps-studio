@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import Container from './components/Container.jsx';
+import MinimalFooter from './components/MinimalFooter.jsx';
+import PROJECTS from './data/projects.js';
 
 export default function NotFound() {
   const base = import.meta.env.BASE_URL;
@@ -70,7 +72,7 @@ export default function NotFound() {
                   <span className="text-white">{`imps find --url "${pathname}"`}</span>
                 </div>
                 <div className="text-[#C48A2B] ml-4">
-                  &rarr; no matches. 0 results in 23 projects.
+                  &rarr; no matches. 0 results in {PROJECTS.length} projects.
                 </div>
                 <div className="mt-2">
                   <span className="text-imps-red">$</span>{' '}
@@ -127,13 +129,7 @@ export default function NotFound() {
         </Container>
       </main>
 
-      {/* Minimal footer */}
-      <footer className="border-t border-ink-700 py-5">
-        <Container className="flex flex-col sm:flex-row justify-between gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-ink-500">
-          <div>&copy; 2026 &middot; imps.studio</div>
-          <div>ERROR 404 &middot; V2026.1</div>
-        </Container>
-      </footer>
+      <MinimalFooter label="ERROR 404" />
     </div>
   );
 }

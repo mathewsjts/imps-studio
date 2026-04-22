@@ -1,4 +1,5 @@
 import Container from './Container.jsx';
+import { CURRENT_YEAR } from '../data/constants.js';
 
 export default function Footer() {
   const base = import.meta.env.BASE_URL;
@@ -22,8 +23,8 @@ export default function Footer() {
           <FootCol title="Contact" items={['Start a project', 'Press kit']} />
         </div>
         <div className="border-t border-ink-700 pt-5 flex flex-col sm:flex-row justify-between gap-2 text-[10px] sm:text-[11px] tracking-[0.12em] uppercase text-ink-500">
-          <div>&copy; 2026 · IMPS.STUDIO</div>
-          <div>V2026.1 · BUILT WITH BREAKFAST</div>
+          <div>&copy; {CURRENT_YEAR} · IMPS.STUDIO</div>
+          <div>V{CURRENT_YEAR}.1 · BUILT WITH BREAKFAST</div>
         </div>
       </Container>
 

@@ -1,8 +1,9 @@
 import Container from './Container.jsx';
+import PROJECTS, { FOUNDING_YEAR } from '../data/projects.js';
 
 const FACTS = [
   { value: '04', label: 'PEOPLE ON THE TEAM' },
-  { value: '23', label: 'PROJECTS SHIPPED' },
+  { value: String(PROJECTS.length), label: 'PROJECTS SHIPPED' },
   { value: 'Remote \u00b7 BR', label: 'WHERE WE WORK', small: true },
 ];
 
@@ -17,7 +18,7 @@ export default function About() {
 
         <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-8 lg:gap-14">
           <div className="text-[12px] tracking-[0.14em] uppercase text-ink-400 leading-[1.6]">
-            A small, independent studio&nbsp;&mdash; founded&nbsp;2021.
+            A small, independent studio&nbsp;&mdash; founded&nbsp;{FOUNDING_YEAR}.
           </div>
 
           <div>

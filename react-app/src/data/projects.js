@@ -1,12 +1,12 @@
-function createStub(slug, name, year, kind, colors, prev, next) {
+function createStub(slug, name, year, kind, colors, { indexTagline = '', stack = '', featured = false, card = null, live = true } = {}) {
   return {
-    slug, name, year, kind,
+    slug, name, year, kind, indexTagline, stack, featured, card, live,
     heroTitle: `${name}.{br}Case study {accent}.`,
     titleAccent: 'coming soon',
     tagline: 'Details for this project are <strong>being written</strong>. Check back soon.',
     meta: [
       { label: 'BUILD TIME', value: '\u2014' },
-      { label: 'STACK', value: '\u2014' },
+      { label: 'STACK', value: stack || '\u2014' },
       { label: 'PLATFORMS', value: kind },
       { label: 'TEAM', value: '\u2014' },
       { label: 'SHIPPED', value: String(year) },
@@ -50,16 +50,53 @@ function createStub(slug, name, year, kind, colors, prev, next) {
       results: 'BY THE NUMBERS',
     },
     quote: null,
-    prev, next,
   };
 }
 
 const PROJECTS = [
+  // ── 2026 ──────────────────────────────────────────────
+  createStub('vault', 'Vault', 2026, 'App', ['#181B21', '#282C34', '#3D434E'], {
+    indexTagline: 'Personal finance dashboard',
+    stack: 'Flutter \u00b7 Plaid',
+  }),
+  createStub('relay', 'Relay', 2026, 'App', ['#0C0E12', '#181B21', '#B83A3A'], {
+    indexTagline: 'Real-time team messenger',
+    stack: 'React Native \u00b7 WS',
+  }),
+  createStub('shard', 'Shard', 2026, 'Web', ['#282C34', '#3D434E', '#5B626F'], {
+    indexTagline: 'Component library marketplace',
+    stack: 'Next.js \u00b7 Turborepo',
+  }),
+
+  // ── 2025 ──────────────────────────────────────────────
+  createStub('atlas', 'Atlas', 2025, 'Web', ['#0C0E12', '#282C34', '#5B626F'], {
+    indexTagline: 'Interactive mapping platform',
+    stack: 'Mapbox \u00b7 React',
+  }),
+  createStub('drift', 'Drift', 2025, 'Game', ['#1a2a3a', '#0C0E12', '#3D434E'], {
+    indexTagline: 'Open-world sailing simulator',
+    stack: 'Unreal 5 \u00b7 C++',
+  }),
+  createStub('prism', 'Prism', 2025, 'App', ['#282C34', '#181B21', '#B83A3A'], {
+    indexTagline: 'Computational photo editor',
+    stack: 'SwiftUI \u00b7 Core ML',
+  }),
+  createStub('wire', 'Wire', 2025, 'Tool', ['#0C0E12', '#181B21', '#282C34'], {
+    indexTagline: 'API integration test suite',
+    stack: 'Go \u00b7 gRPC',
+  }),
+
+  // ── 2024 ──────────────────────────────────────────────
   {
     slug: 'ember',
     name: 'Ember',
     year: 2024,
     kind: 'Game',
+    indexTagline: 'Narrative fireplace game',
+    stack: 'Godot 4 \u00b7 GDScript',
+    featured: true,
+    card: { bg: 'linear-gradient(135deg,#8B2A2A,#B83A3A)', fg: '#fff' },
+    live: true,
     heroTitle: 'Ember.{br}A small fire, {accent}.',
     titleAccent: 'tended quietly',
     tagline: 'A <strong>played-in-one-sitting</strong> narrative game about keeping a fire lit through a long night. Built in Godot. Shipped on Steam.',
@@ -128,20 +165,114 @@ const PROJECTS = [
       timeline: 'SIX MONTHS, EVERY WEEK ACCOUNTED FOR',
       results: "NUMBERS, FOR WHAT THEY'RE WORTH",
     },
-    prev: 'oddkey',
-    next: 'lumen',
   },
-  createStub('lumen', 'Lumen', 2024, 'iOS', ['#282C34', '#1a1d24', '#B83A3A'], 'ember', 'forge'),
-  createStub('forge', 'Forge', 2024, 'Web', ['#0C0E12', '#181B21', '#282C34'], 'lumen', 'pip'),
-  createStub('pip', 'Pip', 2023, 'Bot', ['#FAF0F0', '#E8C5C5', '#B83A3A'], 'forge', 'oddkey'),
-  createStub('oddkey', 'Oddkey', 2024, 'CLI', ['#181B21', '#282C34', '#868D9B'], 'pip', 'ember'),
+  createStub('lumen', 'Lumen', 2024, 'App', ['#282C34', '#1a1d24', '#B83A3A'], {
+    indexTagline: 'Ambient lighting controller',
+    stack: 'SwiftUI \u00b7 BLE',
+    featured: true,
+    card: { bg: '#282C34', fg: '#B83A3A' },
+  }),
+  createStub('forge', 'Forge', 2024, 'Web', ['#0C0E12', '#181B21', '#282C34'], {
+    indexTagline: 'Collaborative design system',
+    stack: 'React \u00b7 WebSocket',
+    featured: true,
+    card: { bg: '#0C0E12', fg: '#fff', border: true },
+  }),
+  createStub('oddkey', 'Oddkey', 2024, 'Tool', ['#181B21', '#282C34', '#868D9B'], {
+    indexTagline: 'Mechanical keyboard configurator',
+    stack: 'Rust \u00b7 HID',
+    featured: true,
+    card: { bg: '#181B21', fg: '#868D9B', border: true },
+  }),
+  createStub('signal', 'Signal', 2024, 'Web', ['#0C0E12', '#282C34', '#B83A3A'], {
+    indexTagline: 'Real-time analytics dashboard',
+    stack: 'Vue \u00b7 D3',
+  }),
+
+  // ── 2023 ──────────────────────────────────────────────
+  createStub('pip', 'Pip', 2023, 'Tool', ['#FAF0F0', '#E8C5C5', '#B83A3A'], {
+    indexTagline: 'Discord moderation bot',
+    stack: 'Node \u00b7 Discord API',
+    featured: true,
+    card: { bg: '#FAF0F0', fg: '#0C0E12' },
+  }),
+  createStub('folio', 'Folio', 2023, 'Web', ['#181B21', '#0C0E12', '#3D434E'], {
+    indexTagline: 'Invoicing for freelancers',
+    stack: 'SvelteKit \u00b7 Stripe',
+  }),
+  createStub('cinder', 'Cinder', 2023, 'Game', ['#8B2A2A', '#0C0E12', '#D96B3A'], {
+    indexTagline: 'Co-op survival crafting',
+    stack: 'Unreal \u00b7 C++',
+    live: false,
+  }),
+  createStub('beacon', 'Beacon', 2023, 'App', ['#282C34', '#181B21', '#5B626F'], {
+    indexTagline: 'Push-notification platform',
+    stack: 'Kotlin \u00b7 Swift',
+  }),
+
+  // ── 2022 ──────────────────────────────────────────────
+  createStub('slab', 'Slab', 2022, 'Web', ['#0C0E12', '#181B21', '#282C34'], {
+    indexTagline: 'Headless CMS for small teams',
+    stack: 'Next.js \u00b7 Postgres',
+  }),
+  createStub('rune', 'Rune', 2022, 'Game', ['#181B21', '#282C34', '#8B2A2A'], {
+    indexTagline: 'Procedural roguelike',
+    stack: 'Unity \u00b7 C#',
+  }),
+  createStub('cloak', 'Cloak', 2022, 'Tool', ['#0C0E12', '#181B21', '#3D434E'], {
+    indexTagline: 'Privacy-first VPN client',
+    stack: 'Go \u00b7 WireGuard',
+    live: false,
+  }),
+
+  // ── 2021 ──────────────────────────────────────────────
+  createStub('nest', 'Nest', 2021, 'App', ['#282C34', '#181B21', '#B83A3A'], {
+    indexTagline: 'Smart-home dashboard',
+    stack: 'React Native \u00b7 MQTT',
+  }),
+  createStub('grain', 'Grain', 2021, 'App', ['#FAF0F0', '#E8C5C5', '#D96B3A'], {
+    indexTagline: 'Camera app with film filters',
+    stack: 'Swift \u00b7 Metal',
+    live: false,
+  }),
+
+  // ── 2020 (founding year) ──────────────────────────────
+  createStub('pixel', 'Pixel', 2020, 'Web', ['#282C34', '#3D434E', '#5B626F'], {
+    indexTagline: 'Portfolio builder for creatives',
+    stack: 'React \u00b7 Node',
+    live: false,
+  }),
+  createStub('flint', 'Flint', 2020, 'Tool', ['#0C0E12', '#181B21', '#282C34'], {
+    indexTagline: 'Static site generator',
+    stack: 'Node \u00b7 Markdown',
+    live: false,
+  }),
 ];
 
+// Auto-assign prev/next navigation (circular)
+PROJECTS.forEach((p, i) => {
+  p.prev = PROJECTS[(i - 1 + PROJECTS.length) % PROJECTS.length].slug;
+  p.next = PROJECTS[(i + 1) % PROJECTS.length].slug;
+});
+
 export default PROJECTS;
+
+export const FOUNDING_YEAR = 2020;
 
 export function getProject(slug) {
   return PROJECTS.find((p) => p.slug === slug) || null;
 }
+
+export function getCategory(kind) {
+  const k = kind.toLowerCase();
+  if (k === 'game') return 'Games';
+  if (k === 'app' || k === 'ios') return 'Apps';
+  if (k === 'web') return 'Web';
+  return 'Tools';
+}
+
+export const liveCount = PROJECTS.filter((p) => p.live).length;
+export const disciplineCount = new Set(PROJECTS.map((p) => getCategory(p.kind))).size;
 
 export function getAdjacent(slug) {
   const project = getProject(slug);

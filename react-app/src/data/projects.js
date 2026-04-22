@@ -1,91 +1,6 @@
 import { getCategory } from './constants.js';
 
-function createStub(slug, name, year, kind, colors, { indexTagline = '', stack = '', featured = false, card = null, live = true } = {}) {
-  return {
-    slug, name, year, kind, indexTagline, stack, featured, card, live,
-    heroTitle: `${name}.{br}Case study {accent}.`,
-    titleAccent: 'coming soon',
-    tagline: 'Details for this project are <strong>being written</strong>. Check back soon.',
-    meta: [
-      { label: 'BUILD TIME', value: '\u2014' },
-      { label: 'STACK', value: stack || '\u2014' },
-      { label: 'PLATFORMS', value: kind },
-      { label: 'TEAM', value: '\u2014' },
-      { label: 'SHIPPED', value: String(year) },
-    ],
-    keyArt: { colors, title: name.toUpperCase() },
-    overview: {
-      eye: 'the brief',
-      lede: 'Case study details coming soon.',
-      body: ['This project is being documented. Full case study will be available shortly.'],
-    },
-    screens: [
-      { label: 'SCREEN 1', variant: 1, corner: '01' },
-      { label: 'SCREEN 2', variant: 2, corner: '02' },
-      { label: 'SCREEN 3', variant: 3, corner: '03' },
-      { label: 'SCREEN 4', variant: 4, corner: '04' },
-    ],
-    challenge: {
-      heading: 'Coming soon.',
-      body: 'Challenge details are being written.',
-      points: ['Detail pending'],
-    },
-    solution: {
-      heading: 'Coming soon.',
-      body: 'Solution details are being written.',
-      points: ['Detail pending'],
-    },
-    timeline: [
-      { step: 'project timeline', desc: 'Timeline details coming soon.', status: 'in-progress' },
-    ],
-    results: [
-      { value: '\u2014', label: 'Coming soon' },
-      { value: '\u2014', label: 'Coming soon' },
-      { value: '\u2014', label: 'Coming soon' },
-      { value: '\u2014', label: 'Coming soon' },
-    ],
-    sectionMeta: {
-      overview: 'WHAT WE MADE',
-      screens: 'FROM THE BUILD',
-      approach: 'HOW WE BUILT IT',
-      timeline: 'PROJECT TIMELINE',
-      results: 'BY THE NUMBERS',
-    },
-    quote: null,
-  };
-}
-
 const PROJECTS = [
-  createStub('vault', 'Vault', 2026, 'App', ['#181B21', '#282C34', '#3D434E'], {
-    indexTagline: 'Personal finance dashboard',
-    stack: 'Flutter \u00b7 Plaid',
-  }),
-  createStub('relay', 'Relay', 2026, 'App', ['#0C0E12', '#181B21', '#B83A3A'], {
-    indexTagline: 'Real-time team messenger',
-    stack: 'React Native \u00b7 WS',
-  }),
-  createStub('shard', 'Shard', 2026, 'Web', ['#282C34', '#3D434E', '#5B626F'], {
-    indexTagline: 'Component library marketplace',
-    stack: 'Next.js \u00b7 Turborepo',
-  }),
-
-  createStub('atlas', 'Atlas', 2025, 'Web', ['#0C0E12', '#282C34', '#5B626F'], {
-    indexTagline: 'Interactive mapping platform',
-    stack: 'Mapbox \u00b7 React',
-  }),
-  createStub('drift', 'Drift', 2025, 'Game', ['#1a2a3a', '#0C0E12', '#3D434E'], {
-    indexTagline: 'Open-world sailing simulator',
-    stack: 'Unreal 5 \u00b7 C++',
-  }),
-  createStub('prism', 'Prism', 2025, 'App', ['#282C34', '#181B21', '#B83A3A'], {
-    indexTagline: 'Computational photo editor',
-    stack: 'SwiftUI \u00b7 Core ML',
-  }),
-  createStub('wire', 'Wire', 2025, 'Tool', ['#0C0E12', '#181B21', '#282C34'], {
-    indexTagline: 'API integration test suite',
-    stack: 'Go \u00b7 gRPC',
-  }),
-
   {
     slug: 'ember',
     name: 'Ember',
@@ -165,83 +80,66 @@ const PROJECTS = [
       results: "NUMBERS, FOR WHAT THEY'RE WORTH",
     },
   },
-  createStub('lumen', 'Lumen', 2024, 'App', ['#282C34', '#1a1d24', '#B83A3A'], {
+  {
+    slug: 'lumen',
+    name: 'Lumen',
+    year: 2024,
+    kind: 'App',
     indexTagline: 'Ambient lighting controller',
     stack: 'SwiftUI \u00b7 BLE',
     featured: true,
     card: { bg: '#282C34', fg: '#B83A3A' },
-  }),
-  createStub('forge', 'Forge', 2024, 'Web', ['#0C0E12', '#181B21', '#282C34'], {
-    indexTagline: 'Collaborative design system',
-    stack: 'React \u00b7 WebSocket',
-    featured: true,
-    card: { bg: '#0C0E12', fg: '#fff', border: true },
-  }),
-  createStub('oddkey', 'Oddkey', 2024, 'Tool', ['#181B21', '#282C34', '#868D9B'], {
-    indexTagline: 'Mechanical keyboard configurator',
-    stack: 'Rust \u00b7 HID',
-    featured: true,
-    card: { bg: '#181B21', fg: '#868D9B', border: true },
-  }),
-  createStub('signal', 'Signal', 2024, 'Web', ['#0C0E12', '#282C34', '#B83A3A'], {
-    indexTagline: 'Real-time analytics dashboard',
-    stack: 'Vue \u00b7 D3',
-  }),
-
-  createStub('pip', 'Pip', 2023, 'Tool', ['#FAF0F0', '#E8C5C5', '#B83A3A'], {
-    indexTagline: 'Discord moderation bot',
-    stack: 'Node \u00b7 Discord API',
-    featured: true,
-    card: { bg: '#FAF0F0', fg: '#0C0E12' },
-  }),
-  createStub('folio', 'Folio', 2023, 'Web', ['#181B21', '#0C0E12', '#3D434E'], {
-    indexTagline: 'Invoicing for freelancers',
-    stack: 'SvelteKit \u00b7 Stripe',
-  }),
-  createStub('cinder', 'Cinder', 2023, 'Game', ['#8B2A2A', '#0C0E12', '#D96B3A'], {
-    indexTagline: 'Co-op survival crafting',
-    stack: 'Unreal \u00b7 C++',
-    live: false,
-  }),
-  createStub('beacon', 'Beacon', 2023, 'App', ['#282C34', '#181B21', '#5B626F'], {
-    indexTagline: 'Push-notification platform',
-    stack: 'Kotlin \u00b7 Swift',
-  }),
-
-  createStub('slab', 'Slab', 2022, 'Web', ['#0C0E12', '#181B21', '#282C34'], {
-    indexTagline: 'Headless CMS for small teams',
-    stack: 'Next.js \u00b7 Postgres',
-  }),
-  createStub('rune', 'Rune', 2022, 'Game', ['#181B21', '#282C34', '#8B2A2A'], {
-    indexTagline: 'Procedural roguelike',
-    stack: 'Unity \u00b7 C#',
-  }),
-  createStub('cloak', 'Cloak', 2022, 'Tool', ['#0C0E12', '#181B21', '#3D434E'], {
-    indexTagline: 'Privacy-first VPN client',
-    stack: 'Go \u00b7 WireGuard',
-    live: false,
-  }),
-
-  createStub('nest', 'Nest', 2021, 'App', ['#282C34', '#181B21', '#B83A3A'], {
-    indexTagline: 'Smart-home dashboard',
-    stack: 'React Native \u00b7 MQTT',
-  }),
-  createStub('grain', 'Grain', 2021, 'App', ['#FAF0F0', '#E8C5C5', '#D96B3A'], {
-    indexTagline: 'Camera app with film filters',
-    stack: 'Swift \u00b7 Metal',
-    live: false,
-  }),
-
-  createStub('pixel', 'Pixel', 2020, 'Web', ['#282C34', '#3D434E', '#5B626F'], {
-    indexTagline: 'Portfolio builder for creatives',
-    stack: 'React \u00b7 Node',
-    live: false,
-  }),
-  createStub('flint', 'Flint', 2020, 'Tool', ['#0C0E12', '#181B21', '#282C34'], {
-    indexTagline: 'Static site generator',
-    stack: 'Node \u00b7 Markdown',
-    live: false,
-  }),
+    live: true,
+    heroTitle: 'Lumen.{br}Case study {accent}.',
+    titleAccent: 'coming soon',
+    tagline: 'Details for this project are <strong>being written</strong>. Check back soon.',
+    meta: [
+      { label: 'BUILD TIME', value: '\u2014' },
+      { label: 'STACK', value: 'SwiftUI \u00b7 BLE' },
+      { label: 'PLATFORMS', value: 'App' },
+      { label: 'TEAM', value: '\u2014' },
+      { label: 'SHIPPED', value: '2024' },
+    ],
+    keyArt: { colors: ['#282C34', '#1a1d24', '#B83A3A'], title: 'LUMEN' },
+    overview: {
+      eye: 'the brief',
+      lede: 'Case study details coming soon.',
+      body: ['This project is being documented. Full case study will be available shortly.'],
+    },
+    screens: [
+      { label: 'SCREEN 1', variant: 1, corner: '01' },
+      { label: 'SCREEN 2', variant: 2, corner: '02' },
+      { label: 'SCREEN 3', variant: 3, corner: '03' },
+      { label: 'SCREEN 4', variant: 4, corner: '04' },
+    ],
+    challenge: {
+      heading: 'Coming soon.',
+      body: 'Challenge details are being written.',
+      points: ['Detail pending'],
+    },
+    solution: {
+      heading: 'Coming soon.',
+      body: 'Solution details are being written.',
+      points: ['Detail pending'],
+    },
+    timeline: [
+      { step: 'project timeline', desc: 'Timeline details coming soon.', status: 'in-progress' },
+    ],
+    results: [
+      { value: '\u2014', label: 'Coming soon' },
+      { value: '\u2014', label: 'Coming soon' },
+      { value: '\u2014', label: 'Coming soon' },
+      { value: '\u2014', label: 'Coming soon' },
+    ],
+    sectionMeta: {
+      overview: 'WHAT WE MADE',
+      screens: 'FROM THE BUILD',
+      approach: 'HOW WE BUILT IT',
+      timeline: 'PROJECT TIMELINE',
+      results: 'BY THE NUMBERS',
+    },
+    quote: null,
+  },
 ];
 
 export default PROJECTS;
